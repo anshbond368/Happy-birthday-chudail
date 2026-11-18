@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy 14th Birthday Dishita! 🎂❤️</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Pacifico&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 50%, #fad0c4 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      color: #2d2d2d;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.95);
+      width: 100%;
+      max-width: 550px;
+      border-radius: 24px;
+      padding: 28px 22px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+      text-align: center;
+      animation: popIn 0.5s ease;
+    }
+    @keyframes popIn {
+      from { transform: scale(0.9); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    .badge {
+      display: inline-block;
+      background: #ffe3e8;
+      color: #e63946;
+      padding: 6px 14px;
+      border-radius: 50px;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      letter-spacing: 0.5px;
+    }
+    h1 { font-size: 24px; color: #d62828; margin-bottom: 10px; }
+    .cursive { font-family: 'Pacifico', cursive; font-size: 30px; color: #ff2a5f; margin-bottom: 15px; }
+    p.sub { font-size: 14px; color: #555; margin-bottom: 20px; }
+    .options { display: flex; flex-direction: column; gap: 10px; margin-top: 15px; }
+    button.opt-btn {
+      background: #fff0f3;
+      border: 2px solid #ffb3c1;
+      color: #333;
+      padding: 13px 16px;
+      border-radius: 14px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    button.opt-btn:hover, button.opt-btn:active {
+      background: #ff4d6d;
+      color: #fff;
+      border-color: #ff4d6d;
+      transform: translateY(-2px);
+    }
+    .roast {
+      margin-top: 14px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #d90429;
+      min-height: 20px;
+    }
+    .hidden { display: none; }
+    .wish-box {
+      text-align: left;
+      background: #fff8f9;
+      border: 2px dashed #ff758f;
+      border-radius: 18px;
+      padding: 20px;
+      margin-top: 15px;
+      font-size: 14.5px;
+      line-height: 1.7;
+      color: #2b2d42;
+      max-height: 60vh;
+      overflow-y: auto;
+    }
+    .wish-box p { margin-bottom: 14px; }
+    .gallery {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+    .gallery img {
+      width: 135px;
+      height: 155px;
+      object-fit: cover;
+      border-radius: 16px;
+      border: 3px solid #ff4d6d;
+      box-shadow: 0 6px 15px rgba(255, 77, 109, 0.25);
+      transition: transform 0.3s ease;
+    }
+    .gallery img:hover { transform: scale(1.05) rotate(2deg); }
+  </style>
+</head>
+<body>
+
+  <!-- LEVEL 1: MOOD CHECK -->
+  <div class="card" id="step-mood">
+    <span class="badge">LEVEL 1 • SECURITY CHECK</span>
+    <h1>Ruko Zara, Dish TV! 📡</h1>
+    <p class="sub">22 Nov ka special surprise kholne se pehle batao, aaj madam ji kis mood par hain?</p>
+    <div class="options">
+      <button class="opt-btn" onclick="nextStep('step-mood', 'step-math1')">😈 Full Bakchodi & Nakhre Mode</button>
+      <button class="opt-btn" onclick="nextStep('step-mood', 'step-math1')">😴 Aaj Dimaag Ghar Par Bhool Aayi Hoon</button>
+      <button class="opt-btn" onclick="nextStep('step-mood', 'step-math1')">😇 Main Toh Bohot Shareef Hoon (Jhoot)</button>
+      <button class="opt-btn" onclick="nextStep('step-mood', 'step-math1')">🎂 Birthday Queen Mode ON</button>
+    </div>
+  </div>
+
+  <!-- LEVEL 2: MATHS Q1 -->
+  <div class="card hidden" id="step-math1">
+    <span class="badge">LEVEL 2 • MATHS TEST (1/3)</span>
+    <h1>Thoda Dimaag Use Karo 🧠</h1>
+    <p class="sub">Solve karo (BODMAS lagana, tukka nahi):<br><strong>22 + 11 × 2 − 14 ÷ 2 = ?</strong></p>
+    <div class="options">
+      <button class="opt-btn" onclick="wrong('roast-m1', 'Arre Dish TV! BODMAS bhool gayi kya? Pehle multiply aur divide karo! 😂')">59</button>
+      <button class="opt-btn" onclick="nextStep('step-math1', 'step-math2')">37</button>
+      <button class="opt-btn" onclick="wrong('roast-m1', 'Galat! Calculator kholne ki zaroorat pad gayi kya 14 saal ki hokar? 😭')">25</button>
+    </div>
+    <div class="roast" id="roast-m1"></div>
+  </div>
+
+  <!-- LEVEL 2: MATHS Q2 -->
+  <div class="card hidden" id="step-math2">
+    <span class="badge">LEVEL 2 • MATHS TEST (2/3)</span>
+    <h1>Tricky Percentage! 📊</h1>
+    <p class="sub">Agar ek number ka <strong>25%</strong> = <strong>14</strong> hai, toh us number ka <strong>50%</strong> kitna hoga?</p>
+    <div class="options">
+      <button class="opt-btn" onclick="wrong('roast-m2', '25% ka double 50% hota hai chudail! Phir se soch 😂')">56</button>
+      <button class="opt-btn" onclick="wrong('roast-m2', 'Itna kam kaise aaya? Phir se try karo! 😭')">7</button>
+      <button class="opt-btn" onclick="nextStep('step-math2', 'step-math3')">28</button>
+    </div>
+    <div class="roast" id="roast-m2"></div>
+  </div>
+
+  <!-- LEVEL 2: MATHS Q3 -->
+  <div class="card hidden" id="step-math3">
+    <span class="badge">LEVEL 2 • MATHS TEST (3/3)</span>
+    <h1>Birthday Logic Test 🔢</h1>
+    <p class="sub">Agar <strong>x + y = 22</strong> (Birthday date) aur <strong>x − y = 6</strong> hai, toh <strong>x</strong> ki value kya hogi?</p>
+    <div class="options">
+      <button class="opt-btn" onclick="nextStep('step-math3', 'step-eng1')">14 (Tumhari Age! 🎉)</button>
+      <button class="opt-btn" onclick="wrong('roast-m3', 'Hint: Dono equations ko add karo, tumhari nayi age aayegi! 😂')">16</button>
+      <button class="opt-btn" onclick="wrong('roast-m3', 'Galat jawab! Aaj birthday hai isliye maaf kiya, dobara try karo 😭')">8</button>
+    </div>
+    <div class="roast" id="roast-m3"></div>
+  </div>
+
+  <!-- LEVEL 3: HARD ENGLISH GRAMMAR Q1 -->
+  <div class="card hidden" id="step-eng1">
+    <span class="badge">LEVEL 3 • HARD ENGLISH GRAMMAR (1/3)</span>
+    <h1>Angrezi Exam Shuru 📚</h1>
+    <p class="sub">Fill in the blank correctly:<br><em>"Neither Dishita nor her friends _____ ready to admit their mistakes."</em></p>
+    <div class="options">
+      <button class="opt-btn" onclick="wrong('roast-e1', 'Galat! Neither...nor mein verb paas wale subject (friends) ke hisaab se lagta hai! 🤓')">is</button>
+      <button class="opt-btn" onclick="nextStep('step-eng1', 'step-eng2')">are</button>
+      <button class="opt-btn" onclick="wrong('roast-e1', 'Has? Grammar ro rahi hai kone mein! Dobara try karo 😂')">has</button>
+    </div>
+    <div class="roast" id="roast-e1"></div>
+  </div>
+
+  <!-- LEVEL 3: HARD ENGLISH GRAMMAR Q2 -->
+  <div class="card hidden" id="step-eng2">
+    <span class="badge">LEVEL 3 • HARD ENGLISH GRAMMAR (2/3)</span>
+    <h1>Tough Conditional! ✍️</h1>
+    <p class="sub">Choose the grammatically correct option:<br><em>"If she _____ more attention in class, she wouldn't ask silly questions."</em></p>
+    <div class="options">
+      <button class="opt-btn" onclick="wrong('roast-e2', 'Second conditional rule bhool gayi! Wouldn’t ke saath past tense aata hai! 😭')">pays</button>
+      <button class="opt-btn" onclick="wrong('roast-e2', 'Had paid ke saath wouldn’t have aata hai madam! Phir se try karo 😂')">had paid</button>
+      <button class="opt-btn" onclick="nextStep('step-eng2', 'step-eng3')">paid</button>
+    </div>
+    <div class="roast" id="roast-e2"></div>
+  </div>
+
+  <!-- LEVEL 3: HARD ENGLISH GRAMMAR Q3 -->
+  <div class="card hidden" id="step-eng3">
+    <span class="badge">LEVEL 3 • HARD ENGLISH GRAMMAR (3/3)</span>
+    <h1>Final Grammar Boss 🔥</h1>
+    <p class="sub">Complete the sentence:<br><em>"Scarcely _____ the cake arrived when Dishita started shouting."</em></p>
+    <div class="options">
+      <button class="opt-btn" onclick="nextStep('step-eng3', 'step-puzzle')">had</button>
+      <button class="opt-btn" onclick="wrong('roast-e3', 'Scarcely ke saath inversion lagta hai (had + subject)! 😂')">the</button>
+      <button class="opt-btn" onclick="wrong('roast-e3', 'Galat! Thoda aur dimaag lagao Dish TV 😭')">was</button>
+    </div>
+    <div class="roast" id="roast-e3"></div>
+  </div>
+
+  <!-- LEVEL 4: FINAL PUZZLE -->
+  <div class="card hidden" id="step-puzzle">
+    <span class="badge">FINAL LOCK • DISH TV PUZZLE</span>
+    <h1>Aakhiri Paheli 🔐</h1>
+    <p class="sub"><em>"Main bina signal ke bhi non-stop chalti hoon, har waqt nakhre dikhati hoon, aur 22 November ko 14 saal ki ho gayi hoon. Batao main kaun?"</em></p>
+    <div class="options">
+      <button class="opt-btn" onclick="wrong('roast-p1', 'Haan waise toh ho, par asli nickname select karo! 😂')">Ek Massom Ladki</button>
+      <button class="opt-btn" onclick="unlockWish()">📡 Chudail Dish TV (Dishita)</button>
+      <button class="opt-btn" onclick="wrong('roast-p1', 'Jhoot bolna band karo aur sahi button dabao! 😭')">Albert Einstein</button>
+    </div>
+    <div class="roast" id="roast-p1"></div>
+  </div>
+
+  <!-- FINAL BIRTHDAY WISH + PHOTOS -->
+  <div class="card hidden" id="step-wish">
+    <span class="badge">🎉 22 NOVEMBER SPECIAL 🎉</span>
+    <div class="cursive">Happiest 14th Birthdayyyy Dishitaaaaa! 😭❤️</div>
+
+    <div class="wish-box">
+      <p>Oyeee chudail, Dish TV, finally tera birthday aa hi gaya! 😂 First of all, I hope you have the most amazing day ever. Honestly, I don’t know how someone can be this irritating and still be such a fun person to talk to. Teri bakchodi, tere nakhre aur teri stupid harkatein kabhi khatam nahi hoti. 😭</p>
+
+      <p>Jokes apart, I genuinely wish you a life full of happiness, success, good health and beautiful memories. May you achieve everything you dream of and always have reasons to smile. I hope you keep growing, learning new things and becoming a better version of yourself every single day.</p>
+
+      <p>And please, never stop being yourself. Keep that crazy personality, keep laughing, keep annoying me and keep spreading your madness everywhere. 😂</p>
+
+      <p>I’m genuinely glad we became friends. From random conversations to silly jokes and pulling each other’s legs, it’s always fun having you around. I hope we create many more unforgettable memories together. And whenever life gets difficult, remember that bad days don’t define you. You’re capable of so much more than you think.</p>
+
+      <p>Also, take care of yourself, focus on your dreams, make your parents proud and never let anyone make you feel less than you are. You deserve genuine happiness, respect and people who appreciate you.</p>
+
+      <p>And haan, one serious request: please thoda dimaag use kar liya kar. I know I’m expecting too much from a Dish TV, but still, miracles happen. 😭😂</p>
+
+      <p>Once again, happiest birthday to my favourite chudail! Stay happy, stay blessed and keep smiling. I hope your 14th year brings you countless reasons to be happy.</p>
+
+      <p><strong>Never lose this friendship, you idiot. Lots of love and best wishes! ❤️🫶🏻</strong></p>
+
+      <!-- PHOTOS GALLERY -->
+      <div class="gallery">
+        <img src="pic1.jpg" alt="Dishita 1" onerror="this.style.display='none'">
+        <img src="pic2.jpg" alt="Dishita 2" onerror="this.style.display='none'">
+        <img src="pic3.jpg" alt="Dishita 3" onerror="this.style.display='none'">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function nextStep(currentId, nextId) {
+      document.getElementById(currentId).classList.add('hidden');
+      document.getElementById(nextId).classList.remove('hidden');
+    }
+
+    function wrong(roastId, msg) {
+      document.getElementById(roastId).innerText = msg;
+    }
+
+    function unlockWish() {
+      nextStep('step-puzzle', 'step-wish');
+      confetti({ particleCount: 150, spread: 80, origin: { y: 0.6 } });
+      setTimeout(() => {
+        confetti({ particleCount: 100, spread: 100, origin: { y: 0.4 } });
+      }, 600);
+    }
+  </script>
+</body>
+</html>
